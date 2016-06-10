@@ -1,0 +1,11 @@
+- name: required python packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - python-pip
+    - python-dev
+    - numpy
+
+# --upgrade is necessary, but how to ?
+- name: tensorflow, ubuntu/linux 64bit, cpu only, python 2.7
+  pip: name=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0rc0-cp27-none-linux_x86_64.whl
+  become: true
