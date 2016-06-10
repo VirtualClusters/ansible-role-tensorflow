@@ -1,9 +1,14 @@
+---
+
 - name: required python packages
   apt: pkg={{ item }} state=present
   with_items:
     - python-pip
     - python-dev
-    - numpy
+
+- name: numpy
+  pip: name=numpy
+  become: true
 
 # --upgrade is necessary, but how to ?
 - name: tensorflow, ubuntu/linux 64bit, cpu only, python 2.7
